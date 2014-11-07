@@ -1,0 +1,78 @@
+@import url("http://fonts.googleapis.com/css?family=The+Girl+Next+Door");
+/* Main stylesheet */
+
+.one-love{
+  padding-bottom:5px;
+}
+.two-loves{
+  padding-bottom:5px;
+}
+
+/* @section forms */
+.btn.cancel { margin-left: 0.5rem; }
+.nowrap { white-space: nowrap; }
+
+/* Your customizations here */
+
+      .audiojs audio { position: absolute; left: -1px; 
+}
+      .audiojs { width: 100%; height: 36px; background: #fff; overflow: hidden; font-family: monospace; font-size: 12px;
+      -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0);
+-moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0);
+-o-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0);
+box-shadow: 1px 1px 8px rgba(0, 0, 0, 0);
+      }
+      .audiojs .play-pause {border-radius: 18px;background: black; width: 36px; height: 36px; padding: 4px 6px; margin: 0px; float: left; overflow: visible; }
+      .audiojs p { display: none; width: 25px; height: 40px; margin: 0px; cursor: pointer; }
+      .audiojs .playZ { display: block; }
+      .audiojs .scrubber {border-radius: 5px;position: relative; float: left; width: 66%; background: #ccc; height: 14px; margin: 10px; overflow: hidden; }
+      .audiojs .progress { position: absolute; top: 0px; left: 0px; height: 14px; width: 0px; background: #ccc; z-index: 1; }
+      .audiojs .loaded { position: absolute; top: 0px; left: 0px; height: 14px; width: 0px; background: #000; }
+      .audiojs .time { border-left:0px;float: right;z-index:200; height: 36px; line-height: 36px; margin: 0px 0px 0px 6px; padding: 0px 6px 0px 12px; color: #600; text-shadow: 1px 1px 0px rgba(0, 0, 0, 0); }
+      .audiojs .time em { color: #888; font-style: normal; }
+      .audiojs .duration { color: #888; font-style: normal; }
+      .audiojs .time strong { font-weight: normal; }
+      .audiojs .error-messageZ { float: left; display: none; margin: 0px 10px; height: 36px; width: 400px; overflow: hidden; line-height: 36px; white-space: nowrap; color: #fff;
+        text-overflow: ellipsis; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -moz-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; }
+      .audiojs .error-messageZ a { color: #eee; text-decoration: none; padding-bottom: 1px; border-bottom: 1px solid #999; white-space: wrap; }
+
+      .audiojs .playZ { background: url('http://song-a-dayz.appspot.com/static/audiojs/player-graphics.gif') -2px -1px no-repeat; }
+      .audiojs .loadingZ { background: url('http://song-a-dayz.appspot.com/static/audiojs/player-graphics.gif') -2px -31px no-repeat; }
+      .audiojs .errorZ { background: url('http://song-a-dayz.appspot.com/static/audiojs/player-graphics.gif') -2px -61px no-repeat; }
+      .audiojs .pauseZ { background: url('http://song-a-dayz.appspot.com/static/audiojs/player-graphics.gif') -2px -91px no-repeat; }
+
+      .playing .playZ, .playingZ .loadingZ, .playingZ .errorZ { display: none; }
+      .playing .pauseZ { display: block; }
+
+      .loading .playZ, .loadingZ .pauseZ, .loadingZ .errorZ { display: none; }
+      .loading .loadingZ { display: block; }
+
+      .errorZ .timeZ, .errorZ .playZ, .errorZ .pauseZ, .errorZ .scrubberZ, .errorZ .loadingZ { display: none; }
+      .errorZ .errorZ { display: block; }
+      .errorZ .play-pauseZ p { cursor: auto; }
+      .errorZ .error-messageZ { display: block; }
+.jumbotron{
+  background: white;
+}    
+
+.navbar-default {
+  background-color: #fff;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #d1ffed;
+    background-color: #27ae60;
+  }
+}
+.navbar-brand{
+  font-family: 'The Girl Next Door', cursive;
+}
+.well {
+   background-color: rgba(215, 245, 225, 1) ;
+   color:black;
+   border-color:white;
+}

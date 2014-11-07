@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=The+Girl+Next+Door);
+@import url("http://fonts.googleapis.com/css?family=The+Girl+Next+Door");
 /* Main stylesheet */
 
 .one-love{
@@ -36,10 +36,10 @@ box-shadow: 1px 1px 8px rgba(0, 0, 0, 0);
         text-overflow: ellipsis; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -moz-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; }
       .audiojs .error-messageZ a { color: #eee; text-decoration: none; padding-bottom: 1px; border-bottom: 1px solid #999; white-space: wrap; }
 
-      .audiojs .playZ { background: url('../audiojs/player-graphics.html') -2px -1px no-repeat; }
-      .audiojs .loadingZ { background: url('../audiojs/player-graphics.html') -2px -31px no-repeat; }
-      .audiojs .errorZ { background: url('../audiojs/player-graphics.html') -2px -61px no-repeat; }
-      .audiojs .pauseZ { background: url('../audiojs/player-graphics.html') -2px -91px no-repeat; }
+      .audiojs .playZ { background: url('http://song-a-dayz.appspot.com/static/audiojs/player-graphics.gif') -2px -1px no-repeat; }
+      .audiojs .loadingZ { background: url('http://song-a-dayz.appspot.com/static/audiojs/player-graphics.gif') -2px -31px no-repeat; }
+      .audiojs .errorZ { background: url('http://song-a-dayz.appspot.com/static/audiojs/player-graphics.gif') -2px -61px no-repeat; }
+      .audiojs .pauseZ { background: url('http://song-a-dayz.appspot.com/static/audiojs/player-graphics.gif') -2px -91px no-repeat; }
 
       .playing .playZ, .playingZ .loadingZ, .playingZ .errorZ { display: none; }
       .playing .pauseZ { display: block; }
