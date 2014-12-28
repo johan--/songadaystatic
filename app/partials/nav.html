@@ -1,0 +1,27 @@
+<nav ng-controller='NavCtrl' class="navbar-header navbar-default navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#/songs"><img style="height: 25px;border-radius: 12px;margin-right: 20px;" src="http://i.imgur.com/S9eAI9V.png"></a>
+      <button ng-click='toggleNav()' type="button" class="navbar-right navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class='navbar-collapse' ng-class="{'collapse': hideNav}">
+      <ul class="nav navbar-nav" >
+        <li><a ng-click='hideNav=true' href="#/mission">Mission</a></li>
+        <li><a ng-click='hideNav=true' href="#/artists">Songwriters</a></li>
+        <li><a ng-click='hideNav=true' href="#/songs">∞ Songs</a></li>
+        <!--        <li><a ng-click='hideNav=true' href="#/sketch">Sketch</a></li>-->
+      </ul>
+      <ul class="nav navbar-nav navbar-right ">
+        <li><a  ng-click='hideNav=true' ng-show-auth href='#transmit' class="button status good" ng-show-auth>Transmit</a></li>
+        <li><a  ng-click='hideNav=true' ng-show-auth href='#account' class="button status good" ng-show-auth>Edit</a></li>
+        <li><a  ng-click='hideNav=true' ng-show-auth href='#artist/{{me.$id}}' class="button status good" ng-show-auth>{{me.alias}}</a></li>
+        <li><a  ng-click='hideNav=true;login()' ng-hide-auth href='javascript:void(0)'>login</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>

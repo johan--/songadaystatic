@@ -1,0 +1,13 @@
+<div id="songs">
+<ul when-scrolled="moreSongs()"  class='row' class='songs' ng-show="songs.length">
+    <li ng-repeat="song in songs | orderBy:predicate">
+      <div ng-include src="'partials/songelement.html'"></div>
+    </li>
+</ul>
+<div ng-show='loading' class='center'>
+  <img width='50%' src='img/loading.gif' />
+</div>
+<br/>
+<br/>
+<br/>
+</div>

@@ -1,0 +1,10 @@
+<div ng-repeat='alert in alerts' class="alert alert-{{alert.type}}" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  {{alert.message}}
+  <a ng-src='alert.link'>
+  </a>
+  <button type="button" class="close" ng-click="alerts.splice($index)">
+    <span aria-hidden="true">&times;</span>
+    <span class="sr-only">Close</span>
+  </button>
+  </div>

@@ -1,0 +1,24 @@
+  <div ng-repeat="comment in song.comments">
+    <div class='comment'><a class='comment-author' href='#artist/{{comment.author.key}}'>{{comment.author.alias ||"buddha"}}</a>: <span class='comment-msg'>{{comment.comment}}</span>
+    <small style='float:right' am-time-ago="comment.timestamp"></small>
+  </div>
+  </div>
+  <button class='commentBtn' ng-hide='song.transmittingComment' ng-show-auth ng-click="beginComment(song)">
+    comment
+  </button>
+  <span ng-hide-auth>
+    <button  ng-click='login()'>login</button>
+    to post a comment
+  </span>
+
+<div id="comments-{{song.key}}" class="comments">
+  <div id="comment" ng-show="song.transmittingComment">
+    <p>
+      {{user.email}}
+    </p>
+    <p>
+        <textarea focus-me='song.transmittingComment' enter-submit='transmitComment(song)' class='freshComment' ng-model='song.freshComment.comment' placeholder='transcendental comment goes here'>
+      </textarea>
+    </p>
+    </div>
+</div>

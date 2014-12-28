@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Song a Day ☕</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+  <link rel="stylesheet" href="css/app.css"/>
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body ng-cloak>
+  <div id="header">
+    <ng-include src="'partials/nav.html'" />
+  </div>
+</br>
+</br>
+
+  <div class='main container' >
+    <div ng-show-auth ng-include src="'partials/alerts.html'"></div>
+  <div class='col-md-10 col-md-offset-1 col-xs-12' ng-view>
+  </div>
+
+  </div>
+
+  <video ng-show='movietime' autoplay id='movie'></video>
+
+
+
+  <nav class="navbar-header navbar-default navbar-fixed-bottom playlist" role="navigation">
+    <div class="container">
+        <audio  media-player="player" playlist="queue"></audio>
+
+          <div  ng-click="player.seek(player.duration * seekPercentage($event))">
+            <div class="track progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" ng-style="{ width: player.currentTime*100/player.duration + '%' }">
+            </div>
+          </div>
+          <ul id='controls'>
+          <li ng-click='prev()' ng-show="player.currentTrack > 1">◀◀</li>
+          <li  ng-click='play()' ng-show="!player.playing"><button>▶</button></li>
+          <li ng-click='pause()' ng-show="player.playing">▐▐</li>
+          <li ng-click='next()' ng-show="queue.length > 1">▶▶</li>
+          </ul>
+          <ul id='queue'>
+                      <li ng-repeat="song in queue" ng-show="queue.length">
+                      <button style='background-image:url("{{song.artist.avatar}}")' height='30px' class='trackavatar track' ng-click="showArtist(song.artist.key)">&nbsp&nbsp&nbsp</button>
+
+                        <button class='track' ng-click='skip($index)' ng-class="{ active: player.playing && player.currentTrack-1 === $index }" >{{song.title}}</button><button class='track attached' ng-click="removeTrack($index)">X</button>
+
+            </li>
+          </ul>
+        <ul id='nowPlaying'>
+          <li  ng-class="{ playing: player.playing }" ng-click='showSong(nowPlaying())'><button style='color:black;'>♬</button></li>
+        </ul>
+
+      </div>
+  </nav>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/firebase/firebase.js"></script>
+  <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
+  <script src="bower_components/angularfire/dist/angularfire.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+  <script src="bower_components/angular-moment/angular-moment.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+  <!--<script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>-->
+  <script src="js/prod/angular-media-player.min.js"></script>
+  <script src="bower_components/cryptojslib/rollups/hmac-sha1.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="js/prod/ng-s3upload.js"></script>
+
+
+  <script src="js/app.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/decorators.js"></script>
+  <script src="js/directives.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/firebase.utils.js"></script>
+  <script src="js/simpleLogin.js"></script>
+  <script src="js/changeEmail.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<form class='w100'>
+  <div ng-show="song">
+    <legend>Transmission recieved</legend>
+    <div ng-include src="'partials/songelement.html'"></div>
+    <button class='destroybtn' ng-click='delete(song)'>
+      Revoke
+    </button>
+  </div>
+
+
+<fieldset ng-hide="song" class='col-md-8 col-md-offset-3 col-xs-12' >
+    <legend>Transmit a song</legend>
+    <div class='well'>
+    <p>
+      <label>
+        <span>Title</span>
+      </label>
+      <input class='w100' ng-model="title" type="text"/>
+    </p>
+    <p>
+      <label>
+    <span>Info </span>
+  </label>
+  <textarea class='w100' ng-model="info" type="text"></textarea>
+  </p>
+  <p>
+    <label>Media</label>
+<p>
+  <div ng-hide='record' theme='audio' s3-accept='audio/*' s3-upload bucket="s3Bucket" ng-model="media"
+  s3-upload-options="{getOptionsUri: s3OptionsUri, folder: destfolder}">
+  </div>
+</p>
+<!--<div ng-show='record'>
+  <button ng-click='startRecording()'>Record</button>
+  <button  ng-click='stopRecording()' >Stop</button>
+  <audio id="recorder" autoplay="" loop="" controls="" muted="" src="" width="100%" height="100%"></audio>
+</div>
+<p>
+  <button ng-click='record=true'>Record Transmission
+  </button>
+</p>-->
+
+  <button class='sendbtn pad10 floatr' ng-hide="song" ng-click='sendTransmission()'>SEND</button>
+</br>
+</br>
+</div>
+</fieldset>
+</form>

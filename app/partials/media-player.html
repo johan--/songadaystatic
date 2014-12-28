@@ -1,0 +1,17 @@
+<nav class="navbar-header navbar-default navbar-fixed-bottom" role="navigation">
+
+  <video controls media-player="player" playlist="queue"></video>
+  <div class="container">
+    <div>
+       <h3>
+        <ul id='queue'>
+          <li ng-click='play()' ng-show="!player.playing"><button>▶</button></li>
+          <li ng-click='pause()' ng-show="player.playing">▐▐</li>
+          <li ng-repeat="song in queue" ng-show="queue.length">
+            {{song.title}}
+          </li>
+        </ul>
+      </h3>
+    </div>
+  </div>
+</nav>

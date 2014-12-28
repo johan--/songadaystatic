@@ -1,0 +1,12 @@
+<ul infinite-scroll="moreArtists()" infinite-scroll-distance="3" id="artists" ng-show="artists.length">
+    <li ng-repeat="artist in artists | orderBy:'songs | length'|reverse">
+      <h2  ng-show='artist.songs'>
+        <a href='#artist/{{artist.key}}'>
+          <img class='avatar' ng-src='{{artist.avatar}}?default=404' err-src="img/default-avatar.png">
+
+        {{artist.alias}}
+        <small class='floatr'>{{artist.songs | length}}</small>
+      </a>
+    </h2>
+  </li>
+</ul>

@@ -1,0 +1,95 @@
+<div class='banner well artist' style='background-image:url({{artist.wall}})!important'>
+  <a href="http://{{artist.link| default:'javascript:void()' | trustUrl}}"><h2 class='alias'>{{artist.alias}}</h2></a>
+  <p ><span class='statement'>{{artist.statement}}</span></p>
+  <img class='avatar' style='border-radius:50px' ng-src='{{artist.avatar}}?default=404' err-src="img/default-avatar.png">
+</div>
+
+<form>
+    <fieldset>
+        <legend>Self</legend>
+<div class='well'>
+        <label>
+            <span>Alias</span>
+            <input type="text" name="name" ng-model="me.alias"/>
+        </label>
+<label>
+  <span>Artist Statement</span>
+  <textarea ng-keypress="clear()" ng-model="me.statement"></textarea>
+</label>
+<label>
+  <span>Cyber Link</span>
+  <input type="text" name="name" ng-model="me.link"/>
+</label>
+
+<p class="error" ng-show="statementerr">{{statementerr}}</p>
+<p class="good" ng-show="statementmsg">{{statementmsg}}</p>
+
+</div>
+    </fieldset>
+</form>
+
+<!--<form>
+    <fieldset>
+        <legend>Password</legend>
+<div class='well'>
+        <label>
+            <span>Old Password</span>
+            <input type="password" ng-keypress="clear()" ng-model="oldpass"/>
+        </label>
+
+        <label>
+            <span>New Password</span>
+            <input type="password" ng-keypress="clear()" ng-model="newpass"/>
+        </label>
+
+        <label>
+            <span>Confirm New Password</span>
+            <input type="password" ng-keypress="clear()" ng-model="confirm"/>
+        </label>
+
+        <button ng-click="changePassword(oldpass, newpass, confirm)">commit</button>
+
+        <p class="error" ng-show="err">{{err}}</p>
+        <p class="good" ng-show="msg">{{msg}}</p>
+      </div>
+        </fieldset>
+</form>
+-->
+<form>
+  <fieldset>
+    <legend>Art</legend>
+    <div class='well'>
+      <label>
+        <span>Avatar</span>
+      </label>
+      <div theme='image' s3-upload bucket="s3Bucket" ng-model="me.avatar"
+      s3-upload-options="{getOptionsUri: s3OptionsUri, folder: destfolder}">
+    </div>
+
+    <p class="error" ng-show="avatarerr">{{avatarerr}}</p>
+    <p class="good" ng-show="avatarmsg">{{avatarmsg}}</p>
+    <label>
+      <span>Wall</span>
+    </label>
+    <div theme='image' s3-upload bucket="s3Bucket" ng-model="me.wall"
+    s3-upload-options="{getOptionsUri: s3OptionsUri, folder: destfolder}">
+  </div>
+      <p class="error" ng-show="wallerr">{{wallerr}}</p>
+      <p class="good" ng-show="wallmsg">{{wallmsg}}</p>
+  </div>
+</fieldset>
+
+
+</form>
+
+<form style='float:right'>
+  <fieldset>
+    <legend>Account</legend>
+    <div class='well'>
+    <button ng-click='logout()'>logout
+    </button>
+  </div>
+    </fieldset>
+
+
+</form>

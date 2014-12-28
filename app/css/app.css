@@ -1,0 +1,356 @@
+::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+.movie{
+  width:100%;
+  }
+.center{
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+.floatr{
+  float:right;
+}
+.progress{
+  height:0px!important;
+}
+.floatl{
+  float:left;
+}
+.banner{
+  background-size: cover;
+  background-color:#d9edf7!important;
+}
+.playallbtn{
+  border: 1px ;
+  padding: 5px;
+  background-color:white;
+  border: 2px solid;
+  position:absolute;
+  left:7%;
+  border-radius: 5px;
+}
+.destroybtn{
+  color: red!important;
+  border: 1px red;
+  padding: 20px;
+  font-size: large;
+  border: 2px solid;
+  border-radius: 15px;
+}
+video{
+  border-radius:5px;
+  padding:15px;
+}
+.w100{
+  width:100%;
+}
+.avatar{
+  height:42px;
+  width:42px;
+}
+/*!
+Pure v0.5.0
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yui/pure/blob/master/LICENSE.md
+*/
+.attached{
+  background-color:gray;
+  border-radius:0px 10px 10px 0px!important;
+  padding:5px;
+  color:white;
+}
+.sketchpad{
+  width:100%!important;
+  height:500px;
+  font-size:large;
+  padding:30px;
+  font-family:Verdana;
+}
+.progress-bar{
+  position:absolute;
+  height:80px;
+  bottom:0px;
+  border-radius:0px!important;
+  left:0px;
+  opacity:60%;
+  z-index:-9999;
+}
+.active{
+  background-color:#a0dba7!important;
+}
+.playlist{
+  border:1px black;
+  background-color:purple;
+}
+.track{
+  background-color:lightgray;
+  color:white!important;
+  padding:5px;
+  z-index:-200;
+  font-size:small;
+}
+.pad10{
+  padding:10px;
+}
+.pad5{
+  padding:5px;
+}
+.statement{
+  color:white;
+  padding:5px;
+}
+.sendbtn{
+  border:1px solid #a0dba7;
+  background-color:white;
+  border-radius:5px;
+}
+
+.playbtn{
+  border-radius:4px;
+  font-size:larger;
+  border:1px solid #a0dba7;
+  height:30px;
+  width:30px
+}
+.trackavatar{
+  color:white;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: initial;
+  background-size: 135%;
+  margin-right:-5px;
+  border-radius:10px 0px 0px 10px!important;
+}
+button{
+    font-family: Arial;
+    color: #a0dba7!important;
+    background: transparent;
+    padding: 0px;
+    text-decoration: none;
+    border-style:none;
+}
+
+textarea{
+  border-color:rgb(238, 238, 238);
+}
+#queue li
+{
+  padding-top:5px;
+  font-size:larger;
+  display: inline;
+  list-style-type: none;
+  padding-right: 2px;
+  margin-bottom: 2px;
+}
+#queue{
+  margin-top:10px;
+  overflow-x: scroll;
+  white-space:nowrap;
+}
+#controls{
+  margin-top:10px;
+  overflow-x: scroll;
+  white-space:nowrap;
+  float:left;
+  display:inline;
+  margin-right:5px;
+}
+#controls li{
+  padding-top:5px;
+  font-size:larger;
+  display: inline;
+  list-style-type: none;
+  padding-right: 2px;
+  margin-bottom: 2px;
+}
+
+#nowPlaying{
+  position: absolute;
+  right: 5px;
+  bottom: 3px;
+  margin-top:10px;
+  overflow-x: scroll;
+  white-space:nowrap;
+  float:right;
+  display:inline;
+  margin-right:5px;
+}
+#nowPlaying li{
+  padding-top:5px;
+  font-size:larger;
+  display: inline;
+  list-style-type: none;
+  padding-right: 2px;
+  margin-bottom: 2px;
+}
+
+
+.freshComment{
+  width:100%;
+}
+.commentBtn{
+  border-left: 5px solid #eee;
+  padding-left: 5px;
+  color:#3F68BF!important;
+}
+.day{
+  padding:10px;float:right;
+}
+.artist{
+  text-align:center;
+}
+.alias{
+  color:gray;
+}
+legend{
+padding-bottom:-20px;
+  border-radius:5px;
+  text-align:center;
+}
+
+.comment{
+  border-left: 5px solid #eee;
+  padding:5px;
+  margin-top:2px;
+}
+.avatar{
+  border-radius: 1000px;
+}
+fieldset {
+  padding:5px!important;
+  margin:5px!important;
+}
+.main{
+  padding-top:30px;
+  padding-bottom:30px;
+}
+
+.songs{
+  padding:20px;
+
+}
+
+.comment-author{
+  font-size:small;
+  font-weight:bold;
+  color:darkblue;
+
+}
+
+.comment{
+  font-size:small;
+}
+
+.navbar-default {
+  background-color: #fff;
+}
+ul{
+  padding:0px!important;
+}
+.jumbotron{
+
+  background-color: #fff!important;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #d1ffed;
+    background-color: #27ae60;
+  }
+}
+.navbar-brand{
+  font-family: 'The Girl Next Door', cursive;
+}
+.well {
+  background-color: rgba(215, 245, 225, 1) ;
+  color:black;
+  border-color:white;
+}
+
+
+/* comments */
+ul {
+  list-style-type: none;
+}
+
+
+
+/* app css stylesheet */
+
+body {
+  margin: 10px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li.hide {
+   display: none;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+p.status {
+   color: red;
+}
+
+p.status.good, p.good {
+   color: green;
+}
+
+form label {
+   display: block;
+   margin: 15px 0;
+}
+
+form label span {
+   display: block;
+   font-weight: bold;
+}
+
+.error {
+   color: red;
+}
+
+fieldset {
+   float: left;
+   margin-right: 25px;
+   padding: 25px;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
