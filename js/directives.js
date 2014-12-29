@@ -83,9 +83,8 @@ angular.module('myApp.directives', ['simpleLogin'])
       restrict: 'A',
       link: function (scope, elem, attrs) {
 
-        elem.bind('keydown', function(event) {
+        elem.bind('keyup', function(event) {
           var code = event.keyCode || event.which;
-
           if (code === 13) {
             if (!event.shiftKey) {
               event.preventDefault();
@@ -93,6 +92,15 @@ angular.module('myApp.directives', ['simpleLogin'])
             }
           }
         });
+        console.log(Modernizr.ios);
+        if (Modernizr.ios) {
+          console.log('bind');
+          elem.bind('blur', function(event) {
+            console.log('blur');
+
+            scope.$apply(attrs.enterSubmit);
+          });
+        }
       }
     }
   }).directive('focusMe', function($timeout, $parse) {
@@ -132,6 +140,12 @@ angular.module('myApp.directives', ['simpleLogin'])
       }
     };
   });
+
+//MISC bonus functions ....
+
+Modernizr.addTest('ios', function(){
+  return navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false
+});
 
 
   if (!String.prototype.startsWith) {
