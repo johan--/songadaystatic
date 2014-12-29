@@ -25,9 +25,7 @@ angular.module('myApp', [
           $rootScope.me = fbutil.syncObject('artists/'+current_artist_key);
 
           $rootScope.me.$loaded(function(){
-            $rootScope.alerts = fbutil.syncArray('alerts/'+$rootScope.me.key);
-            $rootScope.alerts.$loaded(function(){
-            })
+            $rootScope.notices = fbutil.syncArray('notices/'+$rootScope.me.key);
 
             if  (!$rootScope.me['key']){
               $rootScope.me['key']=current_artist_key;
@@ -36,6 +34,13 @@ angular.module('myApp', [
               var user_id = fbutil.syncObject('artists/'+current_artist_key+'/user_id');
               user_id.$value=user.auth.uid;
               user_id.$save();
+            }
+
+            if  (!$rootScope.me['alias']){
+              if ('picture' in user.cachedUserProfile){
+                $rootScope.me['avatar']=user.cachedUserProfile.picture;
+              }
+
             }
             if  (!$rootScope.me['avatar']){
               if ('cachedUserProfile' in user){
@@ -66,14 +71,14 @@ angular.module('myApp', [
     }
     $rootScope.transmitComment=function(song){
       song.freshComment.timestamp=(new Date()).toISOString()
-      var alerts = fbutil.syncArray(['alerts', song.artist.key]);
+      var notices = fbutil.syncArray(['notices', song.artist.key]);
       var comments = fbutil.syncArray(['songs', song.key+'','/comments']);
 
-      alerts.$loaded(function(){
-        var freshAlert={}
-        freshAlert.type='comment';
-        freshAlert.song={'key':song.key,'title':song.title}
-        alerts.$add(freshAlert);
+      notices.$loaded(function(){
+        var notification={}
+        notification.message=$rootScope.me.alias + ' commented on your song '+song.title;
+        notification.link='song/'+song.key;
+        notices.$add(notification);
       });
       comments.$loaded(function(){
 
@@ -133,6 +138,11 @@ angular.module('myApp', [
       $location.path( 'artist/'+key );
     };
 
+    $rootScope.notice = function ( notice ) {
+      $location.path( notice.link );
+      $rootScope.notices.$remove($rootScope.notices.$indexFor(notice.$id));
+    };
+
     $rootScope.showSong = function ( song ) {
       console.log(song);
       $location.path( 'song/'+song.key );
@@ -179,7 +189,7 @@ angular.module('myApp', [
     };
     $rootScope.login = function() {
       simpleLogin.login().then(function(){
-        $location.path('/songs');        
+        $location.path('/songs');
       })
     };
 

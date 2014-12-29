@@ -1,0 +1,13 @@
+<div   ng-repeat='notification in notices' >
+<div class="alert alert-success" role="alert">
+
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <button style='color:green!important' ng-click='notice(notification)' >
+  {{notification.message}}
+</button>
+  <button type="button" class="close" ng-click="notifications.$remove($index)">
+    <span aria-hidden="true">&times;</span>
+    <span class="sr-only">Close</span>
+  </button>
+</div>
+</div>

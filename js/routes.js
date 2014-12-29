@@ -107,7 +107,7 @@ angular.module('myApp.routes', ['ngRoute', 'simpleLogin'])
       }
     });
     // routes which are not in our map are redirected to /home
-    $routeProvider.otherwise({redirectTo: '/mission'});
+    $routeProvider.otherwise({redirectTo: '/songs'});
   }])
 
   /**

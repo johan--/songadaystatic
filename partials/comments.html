@@ -1,6 +1,6 @@
   <div ng-repeat="comment in song.comments">
     <div class='comment'><a class='comment-author' href='#artist/{{comment.author.key}}'>{{comment.author.alias ||"buddha"}}</a>: <span class='comment-msg'>{{comment.comment}}</span>
-    <small style='float:right' am-time-ago="comment.timestamp"></small>
+    <small class='commentstamp' am-time-ago="comment.timestamp"></small>
   </div>
   </div>
   <button class='commentBtn' ng-hide='song.transmittingComment' ng-show-auth ng-click="beginComment(song)">
