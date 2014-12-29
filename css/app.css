@@ -19,6 +19,10 @@
 .floatl{
   float:left;
 }
+.commentstamp{
+  position:absolute;
+  display:none;
+}
 .banner{
   background-size: cover;
   background-color:#d9edf7!important;
@@ -199,8 +203,10 @@ textarea{
   color:#3F68BF!important;
 }
 .day{
-  padding:10px;float:right;
-}
+  float: right;
+  position: absolute;
+  right: 25px;
+  }
 .artist{
   text-align:center;
 }

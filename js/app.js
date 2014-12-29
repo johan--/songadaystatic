@@ -36,12 +36,6 @@ angular.module('myApp', [
               user_id.$save();
             }
 
-            if  (!$rootScope.me['alias']){
-              if ('picture' in user.cachedUserProfile){
-                $rootScope.me['avatar']=user.cachedUserProfile.picture;
-              }
-
-            }
             if  (!$rootScope.me['avatar']){
               if ('cachedUserProfile' in user){
                 if ('picture' in user.cachedUserProfile){

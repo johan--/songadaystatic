@@ -16,6 +16,33 @@
       service.load=0;
       service.list=[];
       service.batch=10;
+      fbutil.ref('songs').limitToLast(1).on('child_added', function(snapshot) {
+        if (service.list.length==0){
+          return;
+        }
+        var newSong=snapshot.val()
+        var exists=false;
+        service.list.forEach(function(song,index){
+          if (song.key==newSong.key){
+            exists=true;
+          }
+        })
+        if (!exists){
+          service.list.unshift(snapshot.val());
+        }
+      });
+      fbutil.ref('songs').on('child_removed', function(snapshot) {
+        var deletedSong=snapshot.val()
+        service.list.forEach(function(song,index){
+          if (song.key==deletedSong.key){
+            service.list.splice(index,1);
+            console.log('found');
+          }
+        })
+      });
+
+
+
       service.fetch=function(callback){
         service.load=service.load+service.batch;
         var more=$firebase(fbutil.ref('songs').orderByChild("key").limitToLast(service.load)).$asArray();
