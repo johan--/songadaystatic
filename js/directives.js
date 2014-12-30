@@ -92,12 +92,8 @@ angular.module('myApp.directives', ['simpleLogin'])
             }
           }
         });
-        console.log(Modernizr.ios);
         if (Modernizr.ios) {
-          console.log('bind');
           elem.bind('blur', function(event) {
-            console.log('blur');
-
             scope.$apply(attrs.enterSubmit);
           });
         }

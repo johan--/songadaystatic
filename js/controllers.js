@@ -16,8 +16,11 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
     artistPage.fetch($routeParams.artist)
     $scope.artist=artistPage.artist;
     $scope.predicate='-timestamp';
+    $scope.songs=artistPage.songs;
+    console.log($scope.songs);
+
     $scope.playAll=function(){
-      $scope.artist.works.reverse().forEach(function(song){
+      artistPage.songs.reverse().forEach(function(song){
       $scope.playsong(song);
       })
     }
@@ -97,56 +100,28 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin'])
     }
   }])
 
-  .controller('AccountCtrl', ['$scope', 'simpleLogin', 'fbutil', 'user', '$location','$rootScope',
-    function($scope, simpleLogin, fbutil, user, $location,$rootScope) {
+  .controller('AccountCtrl', ['$scope', 'simpleLogin', 'fbutil', 'user', '$location','artistPage',
+    function($scope, simpleLogin, fbutil, user, $location,artistPage) {
       if ('me' in $scope){
         $scope.me.$bindTo($scope,'me');
         $scope.artist=$scope.me;
+        $scope.propogate=function(){
+          artistPage.fetchSongs($scope.me.songs,function(song){
+            if ('artist' in song){
+              song.artist.alias=$scope.me.alias;
+              song.artist.avatar=$scope.me.avatar;
+              song.user_id=$scope.me.user_id;
+              song.$save()
+            }
+          })
       }
+      $scope.me.$watch(function(){
+        $scope.propogate();
+      });
 
-      $scope.changePassword = function(pass, confirm, newPass) {
-        resetMessages();
-        if( !pass || !confirm || !newPass ) {
-          $scope.err = 'Please fill in all password fields';
-        }
-        else if( newPass !== confirm ) {
-          $scope.err = 'New pass and confirm do not match';
-        }
-        else {
-          simpleLogin.changePassword(user.email, pass, newPass)
-            .then(function() {
-              $scope.msg = 'Password changed';
-
-            }, function(err) {
-              $scope.err = err;
-            })
-        }
-      };
-
-      $scope.clear = resetMessages;
-
-      $scope.changeStatement = function(newStatement) {
-        resetMessages();
-
-      };
-      $scope.chooseArt = function(avatar,wallart){
-        resetMessages();
-        console.log($scope);
-        $scope.wallerr=avatar;
-        $scope.avatarerr=wallart;
-      };
-
-      function resetMessages() {
-        $scope.err = null;
-        $scope.msg = null;
-        $scope.emailerr = null;
-        $scope.emailmsg = null;
-        $scope.avatarmsg = null;
-        $scope.avatarerr = null;
-        $scope.wallmsg = null;
-        $scope.wallerr = null;
       }
     }
+
   ])
   .controller('TransmitCtrl', ['$route','$timeout','$rootScope','$scope', 'simpleLogin','$firebase', 'fbutil',
   function($route,$timeout,$rootScope,$scope, simpleLogin,$firebase, fbutil) {

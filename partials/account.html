@@ -1,31 +1,23 @@
-<div class='banner well artist' style='background-image:url({{artist.wall}})!important'>
-  <a href="http://{{artist.link| default:'javascript:void()' | trustUrl}}"><h2 class='alias'>{{artist.alias}}</h2></a>
-  <p ><span class='statement'>{{artist.statement}}</span></p>
-  <img class='avatar' style='border-radius:50px' ng-src='{{artist.avatar}}?default=404' err-src="img/default-avatar.png">
-</div>
-
+<ng-include src="'partials/artist-banner.html'">
+</ng-include>
 <form>
-    <fieldset>
-        <legend>Self</legend>
-<div class='well'>
-        <label>
-            <span>Alias</span>
-            <input type="text" name="name" ng-model="me.alias"/>
-        </label>
-<label>
-  <span>Artist Statement</span>
-  <textarea ng-keypress="clear()" ng-model="me.statement"></textarea>
-</label>
-<label>
-  <span>Cyber Link</span>
-  <input type="text" name="name" ng-model="me.link"/>
-</label>
-
-<p class="error" ng-show="statementerr">{{statementerr}}</p>
-<p class="good" ng-show="statementmsg">{{statementmsg}}</p>
-
-</div>
-    </fieldset>
+<fieldset>
+  <legend>Self</legend>
+    <div class='well'>
+      <label>
+        <span>Alias</span>
+        <input type="text" name="name" ng-model="me.alias"/>
+      </label>
+      <label>
+        <span>Artist Statement</span>
+      <textarea ng-keypress="clear()" ng-model="me.statement"></textarea>
+      </label>
+      <label>
+        <span>Cyber Link</span>
+        <input type="text" name="name" ng-model="me.link"/>
+      </label>
+    </div>
+  </fieldset>
 </form>
 
 <!--<form>

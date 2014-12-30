@@ -206,12 +206,16 @@ textarea{
   float: right;
   position: absolute;
   right: 25px;
+  font-size:xx-small;
   }
 .artist{
   text-align:center;
 }
 .alias{
-  color:gray;
+  color:white;
+}
+.gray{
+  color:gray!important;
 }
 legend{
 padding-bottom:-20px;

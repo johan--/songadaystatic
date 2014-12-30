@@ -1,6 +1,10 @@
 <div class='banner well artist' style='background-image:url({{artist.wall}})!important'>
 
-<a target='_blank' href="http://{{artist.link| default:'javascript:void()' | trustUrl}}"><h2 class='statement'>{{artist.alias}}</h2></a>
+<a ng-if='artist.link' target='_blank' href="http://{{artist.link | trustUrl}}">
+  <h2 class='alias' >{{artist.alias}}</h2>
+</a>
+  <h2 ng-if='!artist.link' class='alias' >{{artist.alias}}</h2>
+<a >
   <p ><span class='statement'>{{artist.statement}}</span></p>
   <img class='avatar' style='border-radius:50px' ng-src='{{artist.avatar}}?default=404' err-src="img/default-avatar.png">
   <button class='floatl playallbtn' ng-click='playAll()'>
