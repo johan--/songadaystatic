@@ -1,6 +1,6 @@
 {
-  "firebase": "INSTANCE",
-  "public": "app",
+  "firebase": "song-a-day",
+  "public": ".",
   "ignore": [
     "firebase.json",
     "**/.*",

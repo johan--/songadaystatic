@@ -1,6 +1,6 @@
 <div id="songs">
 <ul when-scrolled="moreSongs()"  class='row' class='songs' ng-show="songs.length">
-    <li ng-repeat="song in songs | orderBy:predicate">
+    <li class='song' ng-animate=" 'animate' " ng-repeat="song in songs | orderBy:predicate">
       <div ng-include src="'partials/songelement.html'"></div>
     </li>
 </ul>

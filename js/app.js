@@ -12,8 +12,7 @@ angular.module('myApp', [
     'mediaPlayer',
     'ngSanitize',
     'ngS3upload',
-    'angularMoment',
-    'ui.bootstrap'
+    'angularMoment'
 ])
 
 .run(['$location','$document','simpleLogin','$firebase','fbutil','$rootScope','$timeout', function($location,$document,simpleLogin,$firebase,fbutil,$rootScope,$timeout) {

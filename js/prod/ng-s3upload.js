@@ -197,6 +197,11 @@ angular.module('ngS3upload.directives', []).
               var selectedFile = file[0].files[0];
               var filename = selectedFile.name;
               var ext = filename.split('.').pop();
+              if (selectedFile.size>100000000){
+                alert('This file is over 100 megabytes, please compress your media and trasmit again.');
+                file[0].files=[]
+                return;
+              }
 
               S3Uploader.getUploadOptions(opts.getOptionsUri).then(function (s3Options) {
                 if (opts.enableValidation) {

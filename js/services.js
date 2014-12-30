@@ -28,7 +28,6 @@
           }
         })
         if (!exists){
-          console.log('new song!');
           service.list.unshift(snapshot.val());
         }
       });
@@ -63,23 +62,28 @@
       return fbutil.syncArray('artists', {limit: 120, endAt: null});
     }])
     .factory('artistPage', ['fbutil','$firebase', function(fbutil,$firebase) {
-      var service={}
-      service.artist={}
-      service.songs=[]
-      service.fetchSongs=function(songs,applyToSong){
-        angular.forEach(Object.keys(songs||[]).reverse(),function(song_key){
+      var service={};
+      service.artist={};
+      service.artistSongs={};
+      service.fetchSongs=function(artist,applyToSong){
+        service.artistSongs[artist.key]=[];
+        angular.forEach(Object.keys(artist.songs||[]).reverse(),function(song_key){
           var song=$firebase(fbutil.ref('songs/'+song_key)).$asObject();
           song.$loaded().then(function(){
             if (applyToSong)
               applyToSong(song);
-            service.songs.push(song);
+            service.artistSongs[artist.key].push(song);
           });
         });
       }
-      service.fetch=function(artist_id){
+      service.fetch=function(artist_id,callback){
+        service.artistSongs[artist_id]=[];
         service.artist=$firebase(fbutil.ref('artists/'+artist_id)).$asObject()
         service.artist.$loaded().then(function(){
-          service.fetchSongs(service.artist.songs);
+          service.fetchSongs(service.artist);
+          if  (callback){
+            callback();
+          }
         });
       }
 

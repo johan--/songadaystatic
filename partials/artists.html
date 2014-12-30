@@ -1,5 +1,5 @@
 <ul infinite-scroll="moreArtists()" infinite-scroll-distance="3" id="artists" ng-show="artists.length">
-    <li ng-repeat="artist in artists | orderBy:'songs | length'|reverse">
+    <li  ng-repeat="artist in artists | orderBy:'songs | length'|reverse">
       <h3 ng-show='artist.songs'>
         <a href='#artist/{{artist.key}}'>
           <img class='avatar' ng-src='{{artist.avatar}}?default=404' err-src="img/default-avatar.png">
